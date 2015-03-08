@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true" />
+    <package name="default" namespace="/" extends="struts-default">
+
+       
+       <!-- 获取四六级成绩 -->
+       <action name="getCetScore"
+       			class="cn.liuning.action.GetCetScoreAction">
+       		<result>/WEB-INF/page/listcetscore.jsp</result>
+      		<exception-mapping result="exce" exception="java.lang.Exception"></exception-mapping>
+       		<result name="indexoutof">/WEB-INF/exceptionerror.jsp</result>
+       </action>
+       
+       <!-- 获取学分绩点 -->
+       <action name="getJidian"
+       			class="cn.liuning.action.GetJidianAction">
+       		<result>/WEB-INF/page/listjidian.jsp</result>
+      		<exception-mapping result="exce" exception="java.lang.Exception"></exception-mapping>
+       		<result name="indexoutof">/WEB-INF/exceptionerror.jsp</result>
+       </action>
+       
+       <!-- 查询图书馆借书 -->
+       <action name="getLibrary"
+       			class="cn.liuning.action.GetLibraryAction">
+       		<result>/WEB-INF/page/listlibrary.jsp</result>
+       		<exception-mapping result="exce" exception="java.lang.Exception"></exception-mapping>
+       		<result name="exce">/WEB-INF/exceptionerror.jsp</result>
+      </action>
+       
+        <!-- 查询课表 -->
+       <action name="getSchedule"
+       			class="cn.liuning.action.GetScheduleAction">
+       		<result>/WEB-INF/listschedule.jsp</result>
+       		<exception-mapping result="exce" exception="java.lang.Exception"></exception-mapping>
+       		<result name="exce">/WEB-INF/exceptionerror.jsp</result>
+       </action>
+       
+       <!-- 查成绩 -->
+       <action name="getSdutScore"
+       			class="cn.liuning.action.GetSdutSoreAction">
+       		<result>/WEB-INF/listsdutscore.jsp</result>
+       		<exception-mapping result="exce" exception="java.lang.Exception"></exception-mapping>
+       		<result name="exce">/WEB-INF/exceptionerror.jsp</result>
+       </action>
+       
+       <!-- 通配action -->
+       <action name="*">
+            <result>/{1}.jsp</result>
+       </action>
+    </package>
+</struts>
